@@ -30,8 +30,8 @@ include $(INCLUDE_DIR)/package.mk
 define Package/mtk-sdk-wifi
   SECTION:=ralink
   CATEGORY:=Ralink SDK
-  TITLE:=MT7628/88 SDK Wifi
-  DEPENDS:=@TARGET_ramips_mt7688_LinkIt7688 +wireless-tools +libuci
+  TITLE:=MT76x8 SDK Wifi
+  DEPENDS:=@(TARGET_ramips_mt7688_LinkIt7688||TARGET_ramips_mt7628_Seeed-MT7628) +wireless-tools +libuci
   ABI_VERSION:=$(PKG_RELEASE)
 endef
 

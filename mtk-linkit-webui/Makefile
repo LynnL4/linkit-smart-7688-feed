@@ -19,9 +19,8 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_SOURCE_VERSION).tar.gz
 include $(INCLUDE_DIR)/package.mk
 
 define Package/mtk-linkit-webui
-  TITLE:=LinkIt Smart 7688 Webui
-  DEPENDS:=@TARGET_ramips_mt7688_LinkIt7688
-  HIDDEN:=1
+  TITLE:=LinkIt Smart 76x8 Webui
+  DEPENDS:=@(TARGET_ramips_mt7688_LinkIt7688||TARGET_ramips_mt7628_Seeed-MT7628)
 endef
 
 define Build/Configure
@@ -36,7 +35,7 @@ define Package/mtk-linkit-webui/install
 	$(INSTALL_DIR) $(1)/www/build
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/app/build/* $(1)/www/build/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/app/zh-*.html $(1)/www/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/app/index.html $(1)/www/index_7688.html
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/app/index.html $(1)/www/index_76x8.html
 endef
 
 $(eval $(call BuildPackage,mtk-linkit-webui))
